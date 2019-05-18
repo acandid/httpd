@@ -1,0 +1,28 @@
+{% for vhost in web_vhosts %}
+<VirtualHost {{ web_ip }}:{{ web_ssl_port }}>
+  DocumentRoot {{ vhost.documentroot }}
+{% if vhost.serveradmin is defined %}
+  ServerAdmin {{ vhost.serveradmin }}
+{% endif %}
+
+  ErrorLog {{ web_errorlog }}{{ vhost.servername }}-error.log
+  CustomLog {{ web_customlog }}{{ vhost.servername }}-access.log combined
+
+  SSLEngine on
+  SSLCipherSuite {{ web_ssl_cipher_suite }}
+  SSLProtocol {{ web_ssl_protocol }}
+  SSLHonorCipherOrder On
+  SSLCertificateFile {{ certificate_file }}
+  SSLCertificateKeyFile {{ certificate_key_file }}
+  SSLCertificateChainFile {{ certificate_chain_file }}
+
+{% if vhost.documentroot is defined %}
+  <Directory "{{ vhost.documentroot }}">
+    AllowOverride {{ web_allow_override }}
+    Options {{ web_options }}
+    Require all granted
+  </Directory>
+</VirtualHost>
+{% endif %}
+
+{% endfor %}

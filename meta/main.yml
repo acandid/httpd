@@ -1,0 +1,21 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: acandid
+  description: Install httpd and ssl.
+  company: "Almir Candido"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.7
+  platforms:
+    - name: EL
+      versions:
+        - 7
+  galaxy_tags:
+    - web
+    - apache
+    - webserver
+    - html
+    - httpd
+allow_duplicates: true
+

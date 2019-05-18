@@ -1,0 +1,16 @@
+---
+- name: copy crt file
+  copy:
+    src: example.com.crt
+    dest: "{{ certificate_file }}"
+
+- name: copy key file
+  copy:
+    src: example.com.key
+    dest: "{{ certificate_key_file }}"
+
+- name: copy CA file
+  copy:
+    src: root-certificate.crt
+    dest: "{{ certificate_chain_file }}"
+  notify: restart apache

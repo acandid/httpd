@@ -1,0 +1,15 @@
+---
+- name: include vars
+  include_vars: "RedHat.yml"
+- name: import install
+  import_tasks: install.yml
+  tags: web
+- name: import start service
+  import_tasks: start.yml
+  tags: web
+- name: import create vhost
+  import_tasks: create_vhost.yml
+  tags: web
+- name: import certificate files
+  import_tasks: copy_certificate.yml
+  tags: web

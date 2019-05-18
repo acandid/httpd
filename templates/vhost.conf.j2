@@ -1,0 +1,18 @@
+{% for vhost in web_vhosts %}
+<VirtualHost {{ web_ip }}:{{ web_port }}>
+  DocumentRoot {{ vhost.documentroot }}
+{% if vhost.serveradmin is defined %}
+  ServerAdmin {{ vhost.serveradmin }}
+{% endif %}
+
+  ErrorLog {{ web_errorlog }}{{ vhost.servername }}-error.log
+  CustomLog {{ web_customlog }}{{ vhost.servername }}-access.log combined
+ 
+  <Directory "{{ vhost.documentroot }}">
+    AllowOverride {{ web_allow_override }}
+    Options {{ web_options }}
+    Require all granted
+  </Directory>
+</VirtualHost>
+
+{% endfor %}

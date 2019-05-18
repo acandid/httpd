@@ -1,0 +1,27 @@
+---
+# defaults file for httpd
+#change the variables for your environment
+web_ip: "*"
+web_port: 80
+web_ssl_port: 443
+#
+web_allow_override: "All"
+web_options: "-Indexes +FollowSymLinks"
+##SSL Config
+certificate_file: "/etc/pki/tls/certs/example.com.crt"
+certificate_key_file: "/etc/pki/tls/private/example.com.key"
+## Optional.
+certificate_chain_file: "/etc/pki/tls/certs/root-certificate.crt"
+#
+web_ssl_protocol: "All -SSLv2 -SSLv3"
+web_ssl_cipher_suite: "AES256+EECDH:AES256+EDH"
+# Set vhost path
+vhost_path: "/etc/httpd/conf.d/"
+# Set log path
+web_errorlog: "/var/log/httpd/"
+web_customlog: "/var/log/httpd/"
+#
+apache_restart_state: restarted
+#
+web_vhosts:
+  - {servername: "yourdomain.com", documentroot: "/var/www/html", serveradmin: "webmaster@yourdomain.com", serveralias: "www.yourdomain.com"}

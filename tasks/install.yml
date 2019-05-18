@@ -1,0 +1,6 @@
+---
+- name: install apache and ssl module
+  package:
+    name: "{{ apache_packages }}"
+    state: present
+  tags: web

@@ -1,0 +1,9 @@
+---
+- name: create Vhost http
+  template:
+    src: vhost.conf.j2
+    dest: "{{ vhost_path }}{{ vhost_name }}.conf"
+- name: create Vhost ssl
+  template:
+    src: ssl_vhost.conf.j2
+    dest: "{{ vhost_path }}ssl.{{ vhost_name }}.conf"

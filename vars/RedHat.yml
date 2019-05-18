@@ -1,0 +1,6 @@
+#Redhat Packages
+#change the variables for your environment
+apache_packages:
+  - httpd
+  - mod_ssl
+apache_service: httpd
