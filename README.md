@@ -63,9 +63,6 @@ The same goes for a certificate chain file and CA certificate file. Ensure they 
 
 Example Playbook
 ----------------
-
-## Example Playbook
-
 ---
 - hosts: server
   become: yes
