@@ -65,10 +65,15 @@ Example Playbook
 ----------------
 ---
 - hosts: server
+
   become: yes
+  
   vars:
+  
     - vhost_name: "example"  # Enter the name of your vhost example: yourdomain.com and this function will create the yourdomain.com.conf and ssl.yourdomain.com.conf
-  roles: 
+    
+  roles:
+  
     - /path/acandid.httpd
 ...
 
